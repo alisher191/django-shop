@@ -1,0 +1,5 @@
+shop-env/
+.env
+.env.docker
+.idea/
+__pycache__/

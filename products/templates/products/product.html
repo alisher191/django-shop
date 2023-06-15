@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{product.name}}
+{% endblock %}
+
+
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            <img src="{{ product.image.url }}" alt="..." width="100%">
+        </p>
+        <p class="text-right">
+            <a href="{% url 'basket_add' product.id %}" class="btn btn-primary">Add to basket</a>
+        </p>
+    </div>
+    <div class="col-md-8">
+        <h1 >
+            {{ product.name }}
+        </h1>
+        <p>
+            {{ product.description }}
+        </p>
+        <br>
+        <p>
+           <strong><i>Quantity:</i></strong> {{ product.quantity }}
+        </p>
+        <p>
+           <strong><i>Price:</i></strong> {{ product.price }}
+        </p>
+        <p>
+            <strong><i>Category:</i></strong> {{ product.category }}
+        </p>
+    </div>
+</div>
+
+{% endblock %}

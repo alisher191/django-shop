@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ user.username }}'s profile
+{% endblock %}
+
+
+{% block content %}
+<br>
+
+<div class="container">
+    <div class="row justify-content-lg-start">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>
+                        Профиль пользователя {{ user.username }}
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="{{ form.first_name.id_for_label }}">Name</label>
+                            {{ form.first_name }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.last_name.id_for_label }}">Last name</label>
+                            {{ form.last_name }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.username.id_for_label }}">Username</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}">Email</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="text-md-center">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       
+            {% include 'products/basket.html' %}
+        
+    </div>
+</div>
+
+
+{% endblock %}
